@@ -1,4 +1,7 @@
+import 'package:dingdong_app/views/screens/signup_screen.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -71,6 +74,11 @@ class LoginScreen extends StatelessWidget {
                             Container(
                               child: TextField(
                                 decoration: InputDecoration(
+                                  prefixIcon: const Icon(
+                                    Icons.email,
+                                    color: Colors.deepOrangeAccent,
+                                  ),
+                                  hintText: 'Email',
                                   contentPadding:
                                       const EdgeInsets.only(left: 20),
                                   focusedBorder: const OutlineInputBorder(
@@ -106,6 +114,11 @@ class LoginScreen extends StatelessWidget {
                             Container(
                               child: TextField(
                                 decoration: InputDecoration(
+                                  prefixIcon: const Icon(
+                                    Icons.password_sharp,
+                                    color: Colors.deepOrangeAccent,
+                                  ),
+                                  hintText: 'Password',
                                   contentPadding:
                                       const EdgeInsets.only(left: 20),
                                   focusedBorder: const OutlineInputBorder(
@@ -141,7 +154,8 @@ class LoginScreen extends StatelessWidget {
                             ),
                             Container(
                               width: MediaQuery.of(context).size.width,
-                              height: MediaQuery.of(context).size.height * 0.065,
+                              height:
+                                  MediaQuery.of(context).size.height * 0.065,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(30),
                                 gradient: const LinearGradient(
@@ -169,22 +183,27 @@ class LoginScreen extends StatelessWidget {
                             ),
                             Center(
                               child: RichText(
-                                text: const TextSpan(
-                                    text: 'Don\'t have an account?',
-                                    style: TextStyle(
-                                      color: Color.fromARGB(255, 117, 116, 116),
-                                      fontSize: 19,
-                                    ),
-                                    children: [
-                                      TextSpan(
-                                        text: ' Create',
-                                        style: TextStyle(
-                                          fontSize: 19,
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.bold,
-                                        ),
+                                text: TextSpan(
+                                  text: 'Don\'t have an account?',
+                                  style: const TextStyle(
+                                    color: Color.fromARGB(255, 117, 116, 116),
+                                    fontSize: 19,
+                                  ),
+                                  children: [
+                                    TextSpan(
+                                      text: ' Create',
+                                      style: const TextStyle(
+                                        fontSize: 19,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
                                       ),
-                                    ]),
+                                      recognizer: TapGestureRecognizer()
+                                        ..onTap = () => Get.to(
+                                              () => const SignUpScreen(),
+                                        ),
+                                    ), 
+                                  ],
+                                ),
                               ),
                             ),
                             const SizedBox(
@@ -192,7 +211,7 @@ class LoginScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                      ), 
+                      ),
                     ],
                   ),
                 ),
