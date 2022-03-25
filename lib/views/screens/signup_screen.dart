@@ -23,7 +23,7 @@ class SignUpScreen extends StatelessWidget {
               child: Column(
                 children: [
                   const SizedBox(
-                    height: 30,
+                    height: 40,
                   ),
                   SizedBox(
                     child: Image.asset(
@@ -42,6 +42,7 @@ class SignUpScreen extends StatelessWidget {
                 children: [
                   Container(
                     child: TextFormField(
+                      keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                         prefixIcon: const Icon(
                           Icons.email,
@@ -81,6 +82,7 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   Container(
                     child: TextFormField(
+                      obscureText: true,
                       decoration: InputDecoration(
                         prefixIcon: const Icon(
                           Icons.password_sharp,
@@ -149,18 +151,29 @@ class SignUpScreen extends StatelessWidget {
                   Center(
                     child: RichText(
                       text: TextSpan(
-                        recognizer: TapGestureRecognizer()..onTap = () => Get.back(),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () => Get.back(),
                         text: 'Have an account?',
-                          style: const TextStyle(
-                            color: Color.fromARGB(255, 117, 116, 116),
-                            fontSize: 19,
-                          ),
+                        style: const TextStyle(
+                          color: Color.fromARGB(255, 117, 116, 116),
+                          fontSize: 19,
+                        ),
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 50
+                  const SizedBox(height: 55),
+                  Center(
+                    child: RichText(
+                      text: const TextSpan(
+                        text: '- OR -',
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 7, 7, 7),
+                          fontSize: 19,
+                        ),
+                      ),
+                    ),
                   ),
+                  const SizedBox(height: 55),
                   Center(
                     child: RichText(
                       text: const TextSpan(
@@ -173,22 +186,26 @@ class SignUpScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(
-                    height: 25,
+                    height: 10,
                   ),
                   Center(
                     child: Wrap(
-                      children: List<Widget>.generate(3, (index) {
-                        return Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: CircleAvatar(
+                      children: List<Widget>.generate(
+                        3,
+                        (index) {
+                          return Padding(
+                            padding: const EdgeInsets.all(13.0),
                             child: CircleAvatar(
                               backgroundColor: Colors.white,
-                              backgroundImage:
+                              child: CircleAvatar(
+                                backgroundColor: Colors.white,
+                                backgroundImage:
                                   AssetImage('assets/images/' + images[index]),
+                              ),
                             ),
-                          ),
-                        );
-                      }),
+                          );
+                        },
+                      ),
                     ),
                   )
                 ],

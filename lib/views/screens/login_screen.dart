@@ -3,8 +3,15 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  bool _rememberMe = false;
 
   @override
   Widget build(BuildContext context) {
@@ -54,25 +61,9 @@ class LoginScreen extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text(
-                              'Hello',
-                              style: TextStyle(
-                                fontSize: 55,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            const Text(
-                              'Sign into your account',
-                              style: TextStyle(
-                                fontSize: 20,
-                                color: Color.fromARGB(255, 117, 116, 116),
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 30,
-                            ),
                             Container(
                               child: TextField(
+                                keyboardType: TextInputType.emailAddress,
                                 decoration: InputDecoration(
                                   prefixIcon: const Icon(
                                     Icons.email,
@@ -113,6 +104,7 @@ class LoginScreen extends StatelessWidget {
                             ),
                             Container(
                               child: TextField(
+                                obscureText: true,
                                 decoration: InputDecoration(
                                   prefixIcon: const Icon(
                                     Icons.password_sharp,
@@ -146,6 +138,54 @@ class LoginScreen extends StatelessWidget {
                                         const Color.fromARGB(255, 158, 158, 158)
                                             .withOpacity(0.3),
                                   ),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 15,
+                            ),
+                            Container(
+                              alignment: Alignment.centerRight,
+                              child: RichText(
+                                text: TextSpan(
+                                  text: 'Forgot Password?',
+                                  style: const TextStyle(
+                                    color: Color.fromARGB(255, 117, 116, 116),
+                                  ),
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap = () => Get.to(
+                                          () => const SignUpScreen(),
+                                        ),
+                                ),
+                             ),),
+                            const SizedBox(
+                              height: 15,
+                            ),
+                            Container(
+                              height: 20,
+                              child: Row(
+                                children: [
+                                  Theme(
+                                    data: ThemeData(
+                                      unselectedWidgetColor: Colors.white),
+                                    child: Checkbox(
+                                      value: _rememberMe,
+                                      checkColor: Colors.green,
+                                      activeColor: Colors.white,
+                                      onChanged: (value) {
+                                        setState(() {
+                                          _rememberMe = value!;
+                                        });
+                                      },
+                                    ),
+                                  ),
+                                  const Text(
+                                    'Remember me',
+                                    style: TextStyle(
+                                      color: Color.fromARGB(255, 117, 116, 116),
+                                    fontSize: 19,
+                                  ),
+                                  )
                                 ],
                               ),
                             ),
@@ -191,7 +231,7 @@ class LoginScreen extends StatelessWidget {
                                   ),
                                   children: [
                                     TextSpan(
-                                      text: ' Create',
+                                      text: ' Sign up',
                                       style: const TextStyle(
                                         fontSize: 19,
                                         color: Colors.black,
@@ -200,14 +240,14 @@ class LoginScreen extends StatelessWidget {
                                       recognizer: TapGestureRecognizer()
                                         ..onTap = () => Get.to(
                                               () => const SignUpScreen(),
-                                        ),
-                                    ), 
+                                            ),
+                                    ),
                                   ],
                                 ),
                               ),
                             ),
                             const SizedBox(
-                              height: 100,
+                              height: 150,
                             ),
                           ],
                         ),
