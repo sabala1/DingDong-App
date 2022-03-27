@@ -1,3 +1,4 @@
+import 'package:dingdong_app/views/screens/home_screen.dart';
 import 'package:dingdong_app/views/screens/signup_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -157,7 +158,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                           () => const SignUpScreen(),
                                         ),
                                 ),
-                             ),),
+                              ),
+                            ),
                             const SizedBox(
                               height: 15,
                             ),
@@ -167,7 +169,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 children: [
                                   Theme(
                                     data: ThemeData(
-                                      unselectedWidgetColor: Colors.white),
+                                        unselectedWidgetColor: Colors.white),
                                     child: Checkbox(
                                       value: _rememberMe,
                                       checkColor: Colors.green,
@@ -183,8 +185,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                     'Remember me',
                                     style: TextStyle(
                                       color: Color.fromARGB(255, 117, 116, 116),
-                                    fontSize: 19,
-                                  ),
+                                      fontSize: 19,
+                                    ),
                                   )
                                 ],
                               ),
@@ -192,28 +194,27 @@ class _LoginScreenState extends State<LoginScreen> {
                             const SizedBox(
                               height: 45,
                             ),
-                            Container(
-                              width: MediaQuery.of(context).size.width,
-                              height:
-                                  MediaQuery.of(context).size.height * 0.065,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                gradient: const LinearGradient(
-                                  colors: [
-                                    Color.fromARGB(255, 241, 95, 92),
-                                    Color.fromARGB(255, 226, 119, 69),
-                                  ],
-                                  begin: Alignment.topCenter,
-                                  end: Alignment.bottomCenter,
-                                ),
-                              ),
-                              child: const Center(
-                                child: Text(
-                                  'Sing in',
-                                  style: TextStyle(
-                                    fontSize: 26,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
+                            ElevatedButton(
+                              style: ElevatedButton.styleFrom(shape: const StadiumBorder(), primary: Colors.deepOrangeAccent, ),
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => HomeScreen()),
+                                );
+                              },
+                              child: Container(
+                                width: MediaQuery.of(context).size.width,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.065,
+                                child: const Center(
+                                  child: Text(
+                                    'Sign in',
+                                    style: TextStyle(
+                                      fontSize: 26,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ),
                               ),

@@ -136,7 +136,7 @@ class SignUpScreen extends StatelessWidget {
                     ),
                     child: const Center(
                       child: Text(
-                        'Sing up',
+                        'Sign up',
                         style: TextStyle(
                           fontSize: 26,
                           fontWeight: FontWeight.bold,
@@ -162,15 +162,26 @@ class SignUpScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 55),
+
                   Center(
-                    child: RichText(
-                      text: const TextSpan(
-                        text: '- OR -',
-                        style: TextStyle(
-                          color: Color.fromARGB(255, 7, 7, 7),
-                          fontSize: 19,
+                    child: Row(
+                      children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width *0.39,
+                          child: const Divider(color: Color.fromARGB(255, 117, 116, 116),)),
+                        RichText(
+                          text: const TextSpan(
+                            text: ' OR ',
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 7, 7, 7),
+                              fontSize: 19,
+                            ),
+                          ),
                         ),
-                      ),
+                        Container(
+                          width: MediaQuery.of(context).size.width *0.39,
+                          child: const Divider(color: Color.fromARGB(255, 117, 116, 116),)),
+                      ],
                     ),
                   ),
                   const SizedBox(height: 55),
