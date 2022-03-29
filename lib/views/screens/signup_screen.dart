@@ -1,3 +1,5 @@
+import 'package:dingdong_app/views/screens/home_screen.dart';
+import 'package:dingdong_app/views/screens/login_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -148,27 +150,37 @@ class SignUpScreen extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  Center(
-                    child: RichText(
-                      text: TextSpan(
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () => Get.back(),
-                        text: 'Have an account?',
-                        style: const TextStyle(
-                          color: Color.fromARGB(255, 117, 116, 116),
-                          fontSize: 19,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => LoginScreen(),
+                            ),
+                          );
+                        },
+                        child: const Text(
+                          "Have an account?",
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 117, 116, 116),
+                            fontSize: 19,
+                          ),
                         ),
                       ),
-                    ),
+                    ],
                   ),
                   const SizedBox(height: 55),
-
                   Center(
                     child: Row(
                       children: [
                         Container(
-                          width: MediaQuery.of(context).size.width *0.39,
-                          child: const Divider(color: Color.fromARGB(255, 117, 116, 116),)),
+                            width: MediaQuery.of(context).size.width * 0.39,
+                            child: const Divider(
+                              color: Color.fromARGB(255, 117, 116, 116),
+                            )),
                         RichText(
                           text: const TextSpan(
                             text: ' OR ',
@@ -179,8 +191,10 @@ class SignUpScreen extends StatelessWidget {
                           ),
                         ),
                         Container(
-                          width: MediaQuery.of(context).size.width *0.39,
-                          child: const Divider(color: Color.fromARGB(255, 117, 116, 116),)),
+                            width: MediaQuery.of(context).size.width * 0.39,
+                            child: const Divider(
+                              color: Color.fromARGB(255, 117, 116, 116),
+                            )),
                       ],
                     ),
                   ),
@@ -210,8 +224,8 @@ class SignUpScreen extends StatelessWidget {
                               backgroundColor: Colors.white,
                               child: CircleAvatar(
                                 backgroundColor: Colors.white,
-                                backgroundImage:
-                                  AssetImage('assets/images/' + images[index]),
+                                backgroundImage: AssetImage(
+                                    'assets/images/' + images[index]),
                               ),
                             ),
                           );

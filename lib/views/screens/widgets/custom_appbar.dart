@@ -31,6 +31,9 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
         ],
       ),
       actions: [
+        // bottomNavigationBar: BottomNavigationBar(
+
+        // )
         Column(
           children: [
             IconButton(

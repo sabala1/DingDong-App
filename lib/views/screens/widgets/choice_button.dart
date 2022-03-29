@@ -1,3 +1,7 @@
+import 'package:dingdong_app/views/screens/home_screen.dart';
+import 'package:dingdong_app/views/screens/message_screen.dart';
+import 'package:dingdong_app/views/screens/search_screen.dart';
+import 'package:dingdong_app/views/screens/user_screen.dart';
 import 'package:flutter/material.dart';
 
 class ChoiceButton extends StatelessWidget {
@@ -22,16 +26,17 @@ class ChoiceButton extends StatelessWidget {
       width: width,
       height: height,
       decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withAlpha(50),
-              spreadRadius: 4,
-              blurRadius: 4,
-              offset: const Offset(3, 3),
-            ),
-          ]),
+        shape: BoxShape.circle,
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withAlpha(50),
+            spreadRadius: 4,
+            blurRadius: 4,
+            offset: const Offset(3, 3),
+          ),
+        ],
+      ),
       child: Icon(
         icon,
         color: color,
@@ -40,3 +45,10 @@ class ChoiceButton extends StatelessWidget {
     );
   }
 }
+
+List pages = [
+  HomeScreen(),
+  SearchScreen(),
+  MessageScreen(),
+  UserScreen(),
+];
