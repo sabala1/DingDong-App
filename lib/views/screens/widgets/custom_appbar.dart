@@ -1,7 +1,11 @@
+import 'package:dingdong_app/views/screens/home_screen.dart';
+import 'package:dingdong_app/views/screens/message_screen.dart';
+import 'package:dingdong_app/views/screens/search_screen.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
-  const CustomAppBar({
+  int pageIdx = 0;
+  CustomAppBar({
     Key? key,
   }) : super(key: key);
 
@@ -27,30 +31,62 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
         ],
       ),
       actions: [
-        IconButton(
-            icon: const Icon(
-              Icons.home,
-              color: Colors.deepOrangeAccent,
-            ),
-            onPressed: () {}),
+        Column(
+          children: [
+            IconButton(
+                icon: const Icon(
+                  Icons.home,
+                  color: Colors.deepOrangeAccent,
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => HomeScreen(),
+                    ),
+                  );
+                }),
+          ],
+        ),
         IconButton(
             icon: const Icon(
               Icons.search,
               color: Colors.deepOrangeAccent,
             ),
-            onPressed: () {}),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SearchScreen(),
+                ),
+              );
+            }),
         IconButton(
             icon: const Icon(
               Icons.message,
               color: Colors.deepOrangeAccent,
             ),
-            onPressed: () {}),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MessageScreen(),
+                ),
+              );
+            }),
         IconButton(
             icon: const Icon(
               Icons.person,
               color: Colors.deepOrangeAccent,
             ),
-            onPressed: () {}),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SearchScreen(),
+                ),
+              );
+            }),
       ],
     );
   }

@@ -1,4 +1,3 @@
-import 'package:dingdong_app/models/travel.dart';
 import 'package:dingdong_app/views/screens/user_screen.dart';
 import 'package:dingdong_app/views/screens/widgets/choice_button.dart';
 import 'package:dingdong_app/views/screens/widgets/custom_appbar.dart';
@@ -7,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:dingdong_app/models/user_models.dart';
 
 class HomeScreen extends StatelessWidget {
-   late final Travel travel;
   static const String routeName = '/';
 
   static Route route() {
@@ -19,15 +17,8 @@ class HomeScreen extends StatelessWidget {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(),
-      body: GestureDetector(
-        onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-             return UserScreen();
-            //return DetailPage();
-          }));
-        },
-        child: Column(
+      appBar: CustomAppBar(),
+      body: Column(
           children: [
             Column(
               children: [
@@ -43,43 +34,42 @@ class HomeScreen extends StatelessWidget {
                     }
                   },
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 8.0,
-                    horizontal: 60,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
-                      ChoiceButton(
-                        width: 60,
-                        height: 60,
-                        size: 25,
-                        color: Colors.deepOrange,
-                        icon: Icons.clear_rounded,
-                      ),
-                      ChoiceButton(
-                        width: 70,
-                        height: 70,
-                        size: 40,
-                        color: Colors.deepOrange,
-                        icon: Icons.favorite,
-                      ),
-                      ChoiceButton(
-                        width: 60,
-                        height: 60,
-                        size: 25,
-                        color: Colors.deepOrange,
-                        icon: Icons.message,
-                      ),
-                    ],
-                  ),
-                ),
               ],
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                vertical: 8.0,
+                horizontal: 60,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  ChoiceButton(
+                    width: 60,
+                    height: 60,
+                    size: 25,
+                    color: Colors.deepOrange,
+                    icon: Icons.clear_rounded,
+                  ),
+                  ChoiceButton(
+                    width: 70,
+                    height: 70,
+                    size: 40,
+                    color: Colors.deepOrange,
+                    icon: Icons.favorite,
+                  ),
+                  ChoiceButton(
+                    width: 60,
+                    height: 60,
+                    size: 25,
+                    color: Colors.deepOrange,
+                    icon: Icons.message,
+                  ),
+                ],
+              ),
             ),
           ],
         ),
-      ),
     );
   }
 }

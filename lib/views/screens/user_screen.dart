@@ -103,8 +103,7 @@ class UserScreen extends StatelessWidget {
                               color: Colors.black, 
                               fontSize: 19, 
                               fontWeight: FontWeight.bold),
-                          ),
-                          
+                          ),  
                         ],
                       ),
                     ),
