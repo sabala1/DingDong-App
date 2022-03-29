@@ -38,7 +38,7 @@ class User extends Equatable {
         'https://media.istockphoto.com/photos/portrait-of-smiling-couple-standing-outdoors-in-front-of-house-with-picture-id1254543554?k=20&m=1254543554&s=612x612&w=0&h=waavHjyxECUINYJKnaEgLVz4ulo-tYyTyfIeW-n54K4=', 
       ],
       jobTitle: 'is a Norwegian producer and actor',
-      bio: 'Give me...'
+      bio: 'กินข้าว...บาท เหมาทั้งวัน...บาท ตจว.บวกเพิ่ม... '
     ),
     const User(
       id: 2,
