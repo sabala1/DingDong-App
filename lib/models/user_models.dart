@@ -37,8 +37,8 @@ class User extends Equatable {
         'https://media.istockphoto.com/photos/portrait-of-smiling-couple-standing-outdoors-in-front-of-house-with-picture-id1254543554?k=20&m=1254543554&s=612x612&w=0&h=waavHjyxECUINYJKnaEgLVz4ulo-tYyTyfIeW-n54K4=',
         'https://media.istockphoto.com/photos/portrait-of-smiling-couple-standing-outdoors-in-front-of-house-with-picture-id1254543554?k=20&m=1254543554&s=612x612&w=0&h=waavHjyxECUINYJKnaEgLVz4ulo-tYyTyfIeW-n54K4=', 
       ],
-      jobTitle: 'is a Norwegian producer and actor',
-      bio: 'กินข้าว...บาท เหมาทั้งวัน...บาท ตจว.บวกเพิ่ม... '
+      jobTitle: 'Norwegian producer and actor',
+      bio: 'กินข้าว...บาท เหมาทั้งวัน...บาท ดูแมวที่ห้องบวกเพิ่ม'
     ),
     const User(
       id: 2,
@@ -65,7 +65,7 @@ class User extends Equatable {
         'https://media.istockphoto.com/photos/female-real-estate-agent-showing-unfurnished-house-to-married-young-picture-id1336547608',
         'https://media.istockphoto.com/photos/female-real-estate-agent-showing-unfurnished-house-to-married-young-picture-id1336547608', 
       ],
-      jobTitle: 'is a Norwegian actress',
+      jobTitle: 'Norwegian actress',
       bio: 'Give me...3'
     ),
     const User(

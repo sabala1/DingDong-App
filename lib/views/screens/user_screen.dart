@@ -1,5 +1,6 @@
 import 'package:dingdong_app/models/user_models.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class UserScreen extends StatelessWidget {
   const UserScreen({Key? key}) : super(key: key);
@@ -26,7 +27,7 @@ class UserScreen extends StatelessWidget {
                 child: Stack(
                   children: [
                     Container(
-                      decoration: BoxDecoration(                     
+                      decoration: BoxDecoration(
                         image: DecorationImage(
                           image: NetworkImage(User.users[0].imageUrls[0]),
                           fit: BoxFit.cover,
@@ -34,10 +35,10 @@ class UserScreen extends StatelessWidget {
                       ),
                     ),
                     Positioned(
-                      top: expandedHeight - roundedContainerHeight +50,
+                      top: expandedHeight - roundedContainerHeight + 50,
                       left: 0,
                       child: Container(
-                        width: MediaQuery.of(context).size.width ,
+                        width: MediaQuery.of(context).size.width,
                         height: roundedContainerHeight,
                         decoration: const BoxDecoration(
                           color: Colors.white,
@@ -52,64 +53,318 @@ class UserScreen extends StatelessWidget {
                 ),
               ),
               Container(
-                decoration: BoxDecoration(color: Colors.white),
-                height: MediaQuery.of(context).size.height /2,
+                decoration: const BoxDecoration(color: Colors.white),
+                height: MediaQuery.of(context).size.height / 2,
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8.0 ),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 8.0),
                   child: SingleChildScrollView(
-                    child: Container(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            '${user.name}, ${user.age}',
-                            style: Theme.of(context).textTheme.headline5!.copyWith(
-                              color: Colors.black, fontWeight: FontWeight.bold),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          '${user.name}, ${user.age}',
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline5!
+                              .copyWith(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          '${user.jobTitle}',
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline5!
+                              .copyWith(
+                                  color: Colors.black,
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.normal),
+                        ),
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        Text(
+                          'About',
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline5!
+                              .copyWith(
+                                  color: Colors.black,
+                                  fontSize: 19,
+                                  fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          '${user.bio}',
+                          style:
+                              Theme.of(context).textTheme.bodyText2!.copyWith(
+                                    color: Colors.black,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                        ),
+                        const SizedBox(height: 35),
+                        Center(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                width: MediaQuery.of(context).size.width * 0.20,
+                                child: const Divider(
+                                  color: Color.fromARGB(255, 117, 116, 116),
+                                ),
+                              ),
+                              Text(
+                                ' Ratings ',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headline5!
+                                    .copyWith(
+                                        color: Colors.black,
+                                        fontSize: 19,
+                                        fontWeight: FontWeight.bold),
+                              ),
+                              Container(
+                                width: MediaQuery.of(context).size.width * 0.20,
+                                child: const Divider(
+                                  color: Color.fromARGB(255, 117, 116, 116),
+                                ),
+                              ),
+                            ],
                           ),
-                          Text(
-                            '${user.jobTitle}',
-                            style: Theme.of(context).textTheme.headline5!.copyWith(
-                              color: Colors.black, 
-                              fontSize: 17, 
-                              fontWeight: FontWeight.normal),
-                          ),
-                          const SizedBox(height: 15,),
-                          Text(
-                            'About',
-                            style: Theme.of(context).textTheme.headline5!.copyWith(
-                              color: Colors.black, 
-                              fontSize: 19, 
-                              fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            '${user.bio}',
-                            style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                              color: Colors.black, 
-                              fontSize: 16, 
-                              fontWeight: FontWeight.normal,
-                              height: 2),
-                          ),
-                          const SizedBox(height: 200,),
-                          Text(
-                            'Interests',
-                            style: Theme.of(context).textTheme.headline5!.copyWith(
-                              color: Colors.black, 
-                              fontSize: 19, 
-                              fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            'Interests',
-                            style: Theme.of(context).textTheme.headline5!.copyWith(
-                              color: Colors.black, 
-                              fontSize: 19, 
-                              fontWeight: FontWeight.bold),
-                          ),  
-                        ],
-                      ),
+                        ),
+                        const SizedBox(height: 10),
+                        Row(
+                          children: [
+                            RatingBar.builder(
+                              initialRating: 3,
+                              minRating: 1,
+                              direction: Axis.horizontal,
+                              allowHalfRating: true,
+                              itemCount: 5,
+                              itemPadding:
+                                  const EdgeInsets.symmetric(horizontal: 1.0),
+                              itemSize: 20.0,
+                              itemBuilder: (context, _) => const Icon(
+                                Icons.favorite,
+                                color: Colors.red,
+                              ),
+                              onRatingUpdate: (rating) {
+                                print(rating);
+                              },
+                            ),
+                            const Text(
+                              ' 4.9/5 ',
+                              style: TextStyle(fontSize: 15),
+                            ),
+                            const Text(
+                              ' (7 Review)',
+                              style: TextStyle(fontSize: 15),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 15),
+                        Row(
+                          children: [
+                            const CircleAvatar(
+                              backgroundImage:
+                                  AssetImage('assets/images/review1.jpg'),
+                            ),
+                            Container(
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 20,),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: const [
+                                    Text(
+                                      'Sydney Sweeney',
+                                    ),
+                                    Text(
+                                      '❤️❤️❤️❤️❤️',
+                                    ),
+                                    Text(
+                                      'น่าร๊ากกกก ก.ล้านตัวววว',
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 15),
+                        Row(
+                          children: [
+                            const CircleAvatar(
+                              backgroundImage:
+                                  AssetImage('assets/images/review2.jpg'),
+                            ),
+                            Container(
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 20,),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: const [
+                                    Text(
+                                      'Sydney Sweeney',
+                                    ),
+                                    Text(
+                                      '❤️❤️❤️❤️❤️',
+                                    ),
+                                    Text(
+                                      'น่าร๊ากกกก ก.ล้านตัวววว',
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 15),
+                        Row(
+                          children: [
+                            const CircleAvatar(
+                              backgroundImage:
+                                  AssetImage('assets/images/review3.jpg'),
+                            ),
+                            Container(
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 20,),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: const [
+                                    Text(
+                                      'Sydney Sweeney',
+                                    ),
+                                    Text(
+                                      '❤️❤️❤️❤️❤️',
+                                    ),
+                                    Text(
+                                      'น่าร๊ากกกก ก.ล้านตัวววว',
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 15),
+                        Row(
+                          children: [
+                            const CircleAvatar(
+                              backgroundImage:
+                                  AssetImage('assets/images/review4.jpg'),
+                            ),
+                            Container(
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 20,),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: const [
+                                    Text(
+                                      'Sydney Sweeney',
+                                    ),
+                                    Text(
+                                      '❤️❤️❤️❤️❤️',
+                                    ),
+                                    Text(
+                                      'น่าร๊ากกกก ก.ล้านตัวววว',
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 15),
+                        Row(
+                          children: [
+                            const CircleAvatar(
+                              backgroundImage:
+                                  AssetImage('assets/images/review5.jpg'),
+                            ),
+                            Container(
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 20,),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: const [
+                                    Text(
+                                      'Sydney Sweeney',
+                                    ),
+                                    Text(
+                                      '❤️❤️❤️❤️❤️',
+                                    ),
+                                    Text(
+                                      'ไอ้ต้าวมากแม่',
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 15),
+                        Row(
+                          children: [
+                            const CircleAvatar(
+                              backgroundImage:
+                                  AssetImage('assets/images/review6.jpg'),
+                            ),
+                            Container(
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 20,),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: const [
+                                    Text(
+                                      'Sydney Sweeney',
+                                    ),
+                                    Text(
+                                      '❤️❤️❤️❤️❤️',
+                                    ),
+                                    Text(
+                                      'น่าร๊ากกกก ก.ล้านตัวววว',
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 15),
+                        Row(
+                          children: [
+                            const CircleAvatar(
+                              backgroundImage:
+                                  AssetImage('assets/images/review7.jpg'),
+                            ),
+                            Container(
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 20,),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: const [
+                                    Text(
+                                      'Sydney Sweeney',
+                                    ),
+                                    Text(
+                                      '❤️❤️❤️❤️',
+                                    ),
+                                    Text(
+                                      'น่าร๊ากกกก ก.ล้านตัวววว',
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 15),
+                      ],
                     ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ],
@@ -118,151 +373,3 @@ class UserScreen extends StatelessWidget {
   }
 }
 
-
-
-/*
-
-import 'package:dingdong_app/models/travel.dart';
-import 'package:dingdong_app/models/user_models.dart';
-import 'package:flutter/material.dart';
-
-class Detail extends StatelessWidget {
-  Detail({Key? key}) : super(key: key);
-  final User user = User.users[0];
-
-
-
-  Widget _buildDetail() {
-    return Container(
-      color: Colors.white,
-      child: Column(children: [
-        _buildUserInfo(),
-      ]),
-    );
-  }
-
-  Widget _buildUserInfo() {
-    return Column(
-      children: [
-        Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  '${user.name}, ${user.age}',
-                  // style: Theme.of(context).textTheme.headline5!.copyWith(
-                  //     color: Colors.black, fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  '${user.jobTitle}',
-                  // style: Theme.of(context).textTheme.headline5!.copyWith(
-                  //     color: Colors.black,
-                  //     fontSize: 17,
-                  //     fontWeight: FontWeight.normal),
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                Text(
-                  'About',
-                  // style: Theme.of(context).textTheme.headline5!.copyWith(
-                  //     color: Colors.black,
-                  //     fontSize: 19,
-                  //     fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  '${user.bio}',
-                  // style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                  //     color: Colors.black,
-                  //     fontSize: 16,
-                  //     fontWeight: FontWeight.normal,
-                  //     height: 2),
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                Text(
-                  'Interests',
-                  // style: Theme.of(context).textTheme.headline5!.copyWith(
-                  //     color: Colors.black,
-                  //     fontSize: 19,
-                  //     fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-          )
-
-      ],
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      child: Column(
-        children: [
-          Text(
-                  'Interests',
-                  // style: Theme.of(context).textTheme.headline5!.copyWith(
-                  //     color: Colors.black,
-                  //     fontSize: 19,
-                  //     fontWeight: FontWeight.bold),
-                ),
-        ],
-      ),
-    );
-  }
-}
-
-
-
-class UserScreen extends StatelessWidget {
-  const UserScreen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    final User user = User.users[0];
-    final Travel travel;
-    const double expandedHeight = 300;
-    const double roundedContainerHeight = 50;
-
-    return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-      ),
-      extendBodyBehindAppBar: true,
-      body: Stack(
-        children: [
-          Opacity(
-            opacity: 0.8,
-            child: Image.network(
-              User.users[0].imageUrls[0],
-              width: MediaQuery.of(context).size.width,
-              height: expandedHeight,
-              fit: BoxFit.cover,
-            ),
-          ),
-          Positioned(
-            top: expandedHeight - roundedContainerHeight,
-            left: 0,
-            child: Container(
-              width: MediaQuery.of(context).size.width,
-              height: roundedContainerHeight,
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(30),
-                  topRight: Radius.circular(30),
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-*/

@@ -1,14 +1,18 @@
+import 'package:dingdong_app/views/screens/person_screen.dart';
+import 'package:flutter/material.dart';
+
 import 'package:dingdong_app/views/screens/home_screen.dart';
 import 'package:dingdong_app/views/screens/message_screen.dart';
 import 'package:dingdong_app/views/screens/search_screen.dart';
-import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
-  int pageIdx = 0;
+   int indexpage;
   CustomAppBar({
     Key? key,
+     required this.indexpage,
   }) : super(key: key);
 
+ 
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -31,65 +35,56 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
         ],
       ),
       actions: [
-        // bottomNavigationBar: BottomNavigationBar(
-
-        // )
         Column(
           children: [
             IconButton(
-                icon: const Icon(
-                  Icons.home,
-                  color: Colors.deepOrangeAccent,
+                icon:  Icon(Icons.home,
+                  color: indexpage ==1? Colors.black: Colors.deepOrangeAccent,
                 ),
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) => HomeScreen(),
-                    ),
+                    PageRouteBuilder(pageBuilder: (_, __, ___) => HomeScreen()),
                   );
                 }),
           ],
         ),
         IconButton(
-            icon: const Icon(
+            icon:  Icon(
               Icons.search,
-              color: Colors.deepOrangeAccent,
+              color: indexpage ==2? Colors.black: Colors.deepOrangeAccent,
             ),
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => SearchScreen(),
-                ),
+                PageRouteBuilder(pageBuilder: (_, __, ___) => SearchScreen()),
               );
-            }),
+            }
+        ),
         IconButton(
-            icon: const Icon(
-              Icons.message,
-              color: Colors.deepOrangeAccent,
-            ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => MessageScreen(),
-                ),
-              );
-            }),
+          icon:  Icon(
+            Icons.message,
+            color: indexpage ==3? Colors.black: Colors.deepOrangeAccent,
+          ),
+          onPressed: () {
+            Navigator.push(
+              context,
+              PageRouteBuilder(pageBuilder: (_, __, ___) => MessageScreen()),
+            );
+          }
+        ),
         IconButton(
-            icon: const Icon(
-              Icons.person,
-              color: Colors.deepOrangeAccent,
-            ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => SearchScreen(),
-                ),
-              );
-            }),
+          icon:  Icon(
+            Icons.person,
+            color: indexpage ==4? Colors.black: Colors.deepOrangeAccent,
+          ),
+          onPressed: () {
+            Navigator.push(
+              context,
+              PageRouteBuilder(pageBuilder: (_, __, ___) => PerSonScreen()),
+            );
+          }
+        ),
       ],
     );
   }

@@ -1,3 +1,4 @@
+import 'package:dingdong_app/views/screens/widgets/custom_appbar.dart';
 import 'package:flutter/material.dart';
 
 class PerSonScreen extends StatelessWidget {
@@ -6,7 +7,9 @@ class PerSonScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: CustomAppBar(indexpage:4),
       body: Center(child: Text('person')),
+      
       
     );
   }

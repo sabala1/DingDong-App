@@ -12,13 +12,13 @@ class ChoiceButton extends StatelessWidget {
   final IconData icon;
 
   const ChoiceButton(
-    {Key? key,
-    required this.width,
-    required this.height,
-    required this.size,
-    required this.color,
-    required this.icon})
-    : super(key: key);
+      {Key? key,
+      required this.width,
+      required this.height,
+      required this.size,
+      required this.color,
+      required this.icon})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -52,3 +52,4 @@ List pages = [
   MessageScreen(),
   UserScreen(),
 ];
+

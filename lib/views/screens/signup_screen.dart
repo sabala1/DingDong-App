@@ -158,7 +158,7 @@ class SignUpScreen extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => LoginScreen(),
+                              builder: (context) => const LoginScreen(),
                             ),
                           );
                         },
@@ -177,10 +177,11 @@ class SignUpScreen extends StatelessWidget {
                     child: Row(
                       children: [
                         Container(
-                            width: MediaQuery.of(context).size.width * 0.39,
-                            child: const Divider(
-                              color: Color.fromARGB(255, 117, 116, 116),
-                            )),
+                          width: MediaQuery.of(context).size.width * 0.39,
+                          child: const Divider(
+                            color: Color.fromARGB(255, 117, 116, 116),
+                          ),
+                        ),
                         RichText(
                           text: const TextSpan(
                             text: ' OR ',
@@ -191,10 +192,11 @@ class SignUpScreen extends StatelessWidget {
                           ),
                         ),
                         Container(
-                            width: MediaQuery.of(context).size.width * 0.39,
-                            child: const Divider(
-                              color: Color.fromARGB(255, 117, 116, 116),
-                            )),
+                          width: MediaQuery.of(context).size.width * 0.39,
+                          child: const Divider(
+                            color: Color.fromARGB(255, 117, 116, 116),
+                          ),
+                        ),
                       ],
                     ),
                   ),

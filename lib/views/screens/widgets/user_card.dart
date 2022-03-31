@@ -70,11 +70,6 @@ class UserCard extends StatelessWidget {
                       '${user.name}, ${user.age}',
                       style: Theme.of(context).textTheme.headline5!.copyWith(
                           color: Colors.white, fontWeight: FontWeight.bold),
-
-                      // style: Theme.of(context)
-                      //     .textTheme
-                      //     .headline5!
-                      //     .copyWith(color: Colors.white),
                     ),
                     Text(
                       '${user.jobTitle}',
