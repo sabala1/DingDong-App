@@ -6,19 +6,19 @@ import 'package:dingdong_app/views/screens/message_screen.dart';
 import 'package:dingdong_app/views/screens/search_screen.dart';
 
 class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
-   int indexpage;
+  int indexpage;
   CustomAppBar({
     Key? key,
-     required this.indexpage,
+    required this.indexpage,
   }) : super(key: key);
 
- 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false,
       backgroundColor: Colors.transparent,
       elevation: 0, //ทำให้ AppBar หาย
+
       title: Row(
         children: const [
           Expanded(
@@ -35,60 +35,54 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
         ],
       ),
       actions: [
-        Column(
-          children: [
-            IconButton(
-                icon:  Icon(Icons.home,
-                  color: indexpage ==1? Colors.black: Colors.deepOrangeAccent,
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    PageRouteBuilder(pageBuilder: (_, __, ___) => HomeScreen()),
-                  );
-                }),
-          ],
-        ),
         IconButton(
-            icon:  Icon(
+            icon: Icon(
+              Icons.home,
+              color: indexpage == 1 ? Colors.black : Colors.deepOrangeAccent,
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                PageRouteBuilder(pageBuilder: (_, __, ___) => HomeScreen()),
+              );
+            }),
+        IconButton(
+            icon: Icon(
               Icons.search,
-              color: indexpage ==2? Colors.black: Colors.deepOrangeAccent,
+              color: indexpage == 2 ? Colors.black : Colors.deepOrangeAccent,
             ),
             onPressed: () {
               Navigator.push(
                 context,
                 PageRouteBuilder(pageBuilder: (_, __, ___) => SearchScreen()),
               );
-            }
-        ),
+            }),
         IconButton(
-          icon:  Icon(
-            Icons.message,
-            color: indexpage ==3? Colors.black: Colors.deepOrangeAccent,
-          ),
-          onPressed: () {
-            Navigator.push(
-              context,
-              PageRouteBuilder(pageBuilder: (_, __, ___) => MessageScreen()),
-            );
-          }
-        ),
+            icon: Icon(
+              Icons.message,
+              color: indexpage == 3 ? Colors.black : Colors.deepOrangeAccent,
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                PageRouteBuilder(pageBuilder: (_, __, ___) => MessageScreen()),
+              );
+            }),
         IconButton(
-          icon:  Icon(
-            Icons.person,
-            color: indexpage ==4? Colors.black: Colors.deepOrangeAccent,
-          ),
-          onPressed: () {
-            Navigator.push(
-              context,
-              PageRouteBuilder(pageBuilder: (_, __, ___) => PerSonScreen()),
-            );
-          }
-        ),
+            icon: Icon(
+              Icons.person,
+              color: indexpage == 4 ? Colors.black : Colors.deepOrangeAccent,
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                PageRouteBuilder(pageBuilder: (_, __, ___) => PerSonScreen()),
+              );
+            }),
       ],
     );
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(56.0);
+  Size get preferredSize => const Size.fromHeight(54.0);
 }
