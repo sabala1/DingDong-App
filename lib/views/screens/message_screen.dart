@@ -14,7 +14,7 @@ class MessageScreen extends StatelessWidget {
           children: [
             Padding(
               padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 8.0),
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 8.0),
               child: Container(
                 height: MediaQuery.of(context).size.height * 0.05,
                 child: TextFormField(
@@ -26,10 +26,10 @@ class MessageScreen extends StatelessWidget {
                     hintText: 'search',
                     contentPadding: const EdgeInsets.only(left: 20),
                     focusedBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color:Color.fromARGB(255, 0, 0, 0), width: 0.5),
+                      borderSide: BorderSide(color:Color.fromARGB(255, 0, 0, 0), width: 0.8),
                     ),
                     enabledBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color:Color.fromARGB(255, 158, 158, 158), width: 0.5),
+                      borderSide: BorderSide(color:Color.fromARGB(255, 158, 158, 158), width: 0.8),
                     ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
@@ -71,7 +71,6 @@ class MessageScreen extends StatelessWidget {
                                   ),
                                 );
                               },
-
                         child: Row(
                           children: [
                             const CircleAvatar(
