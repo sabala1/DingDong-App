@@ -100,7 +100,7 @@ class MessageScreen extends StatelessWidget {
                               ),
                             ),
                             Container(
-                              width: MediaQuery.of(context).size.width/1.69,
+                              width: MediaQuery.of(context).size.width / 2.5,
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
@@ -155,7 +155,7 @@ class MessageScreen extends StatelessWidget {
                             ),
                           ),
                           Container(
-                            width: MediaQuery.of(context).size.width/1.69,
+                            width: MediaQuery.of(context).size.width / 2.5,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
@@ -209,7 +209,7 @@ class MessageScreen extends StatelessWidget {
                             ),
                           ),
                           Container(
-                            width: MediaQuery.of(context).size.width/1.69,
+                            width: MediaQuery.of(context).size.width / 2.5,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
