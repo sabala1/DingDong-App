@@ -138,7 +138,7 @@ class SignUpScreen extends StatelessWidget {
                     ),
                     child: const Center(
                       child: Text(
-                        'Sign up',
+                        'Signnnnn up',
                         style: TextStyle(
                           fontSize: 26,
                           fontWeight: FontWeight.bold,
