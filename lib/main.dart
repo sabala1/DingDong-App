@@ -1,7 +1,8 @@
 import 'package:dingdong_app/models/models.dart';
-import 'package:dingdong_app/views/screens/login_screen.dart';
-import 'package:dingdong_app/views/screens/swipe/swipe_bloc.dart';
-import 'package:dingdong_app/views/screens/swipe/swipe_event.dart';
+import 'package:dingdong_app/views/login_screen.dart';
+import 'package:dingdong_app/views/login_screen.dart';
+import 'package:dingdong_app/views/swipe/swipe_bloc.dart';
+import 'package:dingdong_app/views/swipe/swipe_event.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
